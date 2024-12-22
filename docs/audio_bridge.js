@@ -1,10 +1,13 @@
-// audio_bridge.js
 const audioPlayers = {};
 
 function createAudioPlayer(id, audioFile) {
+    // Resolve the audio file path relative to the current page's location
+    const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/"));
+    const resolvedPath = basePath + audioFile;
+
     audioPlayers[id] = new Howl({
-        src: [audioFile],
-        html5: true, // Enables playing on mobile browsers
+        src: [resolvedPath],  // Use the resolved path
+        html5: true,  // Enables playing on mobile browsers
     });
 }
 
@@ -33,4 +36,5 @@ window.audioBridge = {
     stopAudio,
     setVolume,
 };
+
 
