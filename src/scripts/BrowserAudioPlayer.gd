@@ -12,6 +12,7 @@ func _init(_player_id: String, _file_path: String):
 	player_id = _player_id
 	file_path = _file_path
 	if is_browser:
+		JavaScript.eval("console.log('Hello from eval!')")
 		# Convert the res:// path to a relative URL for the browser
 		var file_url = file_path.replace("res://", "/")  # Convert res:// to a relative URL
 		# Use Howler.js for audio playback (pass both player_id and adjusted file_url)

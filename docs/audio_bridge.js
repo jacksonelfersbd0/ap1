@@ -10,6 +10,7 @@ function createAudioPlayer(id, audioFile) {
         html5: true,  // Enables playing on mobile browsers
     });
     console.log(audioPlayers);
+    console.log(resolvedPath);
     audioPlayers[id].play();
 }
 
