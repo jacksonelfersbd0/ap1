@@ -12,12 +12,13 @@ func _init(_player_id: String, _file_path: String):
 	player_id = _player_id
 	file_path = _file_path
 	if is_browser:
-		# Use Howler.js for audio playback (pass both player_id and file_path as a string)
-		var js_code = "audioBridge.createAudioPlayer('" + player_id + "', '" + file_path + "');"
+		# Convert the res:// path to a relative URL for the browser
+		var file_url = file_path.replace("res://", "/")  # Convert res:// to a relative URL
+		# Use Howler.js for audio playback (pass both player_id and adjusted file_url)
+		var js_code = "audioBridge.createAudioPlayer('" + player_id + "', '" + file_url + "');"
 		JavaScript.eval(js_code)
 
 func play():
-	print("Hello!")
 	if is_browser:
 		var js_code = "audioBridge.playAudio('" + player_id + "');"
 		JavaScript.eval(js_code)
@@ -43,3 +44,4 @@ func is_playing() -> bool:
 		return JavaScript.eval("audioBridge.isPlaying('" + player_id + "');")
 	else:
 		return $AudioStreamPlayer.is_playing()
+
