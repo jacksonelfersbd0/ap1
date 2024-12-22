@@ -1,11 +1,13 @@
 extends Node
 
 func _ready():
+	print(get_tree().get_nodes_in_group("AudioStreamPlayers"))
 	if OS.has_feature("HTML5"):
 		override_audio_api()
 
 func override_audio_api():
 	for child in get_tree().get_nodes_in_group("AudioStreamPlayers"):
+		print("adding one!")
 		var id = str(child.get_instance_id())
 		var file = child.stream.resource_path
 		var browser_player = BrowserAudioPlayer.new(id, file)
