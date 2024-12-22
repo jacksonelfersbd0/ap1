@@ -19,6 +19,8 @@ func _init(_player_id: String, _file_path: String):
 		JavaScript.eval(js_code)
 
 func play():
+	print(is_browser)
+	print("playing!")
 	if is_browser:
 		var js_code = "audioBridge.playAudio('" + player_id + "');"
 		JavaScript.eval(js_code)
