@@ -9,6 +9,7 @@ function createAudioPlayer(id, audioFile) {
         src: [resolvedPath],  // Use the resolved path
         html5: true,  // Enables playing on mobile browsers
     });
+    console.log("Hello from the bridge.");
     console.log(audioPlayers);
     console.log(resolvedPath);
     audioPlayers[id].play();
