@@ -13,6 +13,7 @@ function createAudioPlayer(id, audioFile) {
 
 function playAudio(id) {
     if (audioPlayers[id]) {
+        console.log("playing audio from howler!");
         audioPlayers[id].play();
     }
 }
