@@ -9,9 +9,11 @@ function createAudioPlayer(id, audioFile) {
         src: [resolvedPath],  // Use the resolved path
         html5: true,  // Enables playing on mobile browsers
     });
+    console.log(audioPlayers);
 }
 
 function playAudio(id) {
+    console.log("Playing audio from id: " + id);
     if (audioPlayers[id]) {
         console.log("playing audio from howler!");
         audioPlayers[id].play();
